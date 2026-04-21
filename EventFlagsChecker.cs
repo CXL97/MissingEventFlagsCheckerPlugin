@@ -293,118 +293,93 @@
 
         public static EventFlagsChecker CreateEventFlagsChecker(SaveFile savFile)
         {
-            EventFlagsChecker? eventsOrganizer = savFile.Version switch
+            EventFlagsChecker? eventsOrganizer = savFile.Version.GetSingleVersion() switch
             {
-                GameVersion.Any or
-                GameVersion.RBY or
-                GameVersion.StadiumJ or
-                GameVersion.Stadium or
-                GameVersion.Stadium2 or
-                GameVersion.RSBOX or
-                GameVersion.COLO or
-                GameVersion.XD or
                 GameVersion.CXD or
                 GameVersion.BATREV or
-                GameVersion.ORASDEMO or
                 GameVersion.GO or
-                GameVersion.Invalid
+                GameVersion.CP
                     // unsupported format
                     => null,
 
                 GameVersion.RD or
                 GameVersion.GN or
-                GameVersion.BU or
-                GameVersion.RB
+                GameVersion.BU
                     => new CheckerGen1RB(),
 
                 GameVersion.YW
                     => new CheckerGen1Y(),
 
                 GameVersion.GD or
-                GameVersion.SI or
-                GameVersion.GS
+                GameVersion.SI
                     => new CheckerGen2GS(),
 
                 GameVersion.C
                     => new CheckerGen2C(),
 
                 GameVersion.R or
-                GameVersion.S or
-                GameVersion.RS
+                GameVersion.S
                     => new CheckerGen3RS(),
 
                 GameVersion.FR or
-                GameVersion.LG or
-                GameVersion.FRLG
+                GameVersion.LG
                     => new CheckerGen3FRLG(),
 
                 GameVersion.E
                     => new CheckerGen3E(),
 
                 GameVersion.D or
-                GameVersion.P or
-                GameVersion.DP
+                GameVersion.P
                     => new CheckerGen4DP(),
 
                 GameVersion.Pt
                     => new CheckerGen4Pt(),
 
                 GameVersion.HG or
-                GameVersion.SS or
-                GameVersion.HGSS
+                GameVersion.SS
                     => new CheckerGen4HGSS(),
 
                 GameVersion.B or
-                GameVersion.W or
-                GameVersion.BW
+                GameVersion.W
                     => new CheckerGen5BW(),
 
                 GameVersion.B2 or
-                GameVersion.W2 or
-                GameVersion.B2W2
+                GameVersion.W2
                     => new CheckerGen5B2W2(),
 
                 GameVersion.X or
-                GameVersion.Y or
-                GameVersion.XY
+                GameVersion.Y
                     => new CheckerGen6XY(),
 
                 GameVersion.OR or
-                GameVersion.AS or
-                GameVersion.ORAS
+                GameVersion.AS
                     => new CheckerGen6ORAS(),
 
                 GameVersion.SN or
-                GameVersion.MN or
-                GameVersion.SM
+                GameVersion.MN
                     => new CheckerGen7SM(),
 
                 GameVersion.US or
-                GameVersion.UM or
-                GameVersion.USUM
+                GameVersion.UM
                     => new CheckerGen7USUM(),
 
                 GameVersion.GP or
-                GameVersion.GE or
-                GameVersion.GG
+                GameVersion.GE
                     => new CheckerGen7bGPGE(),
 
                 GameVersion.SW or
-                GameVersion.SH or
-                GameVersion.SWSH
+                GameVersion.SH
                     => new CheckerGen8SWSH(),
 
                 GameVersion.BD or
-                GameVersion.SP or
-                GameVersion.BDSP
+                GameVersion.SP
                     => new CheckerGen8BDSP(),
 
                 GameVersion.PLA
                     => new CheckerGen8LA(),
 
                 GameVersion.SL or
-                GameVersion.VL or
-                GameVersion.SV
+                GameVersion.VL
                     => new CheckerGen9SV(),
 
                 GameVersion.ZA
